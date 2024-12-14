@@ -28,7 +28,7 @@ action() {
 # 函数，判断命令是否正常执行
 if_success() {
   local ReturnStatus=$3
-  if [ $ReturnStatus -eq 0 ]; then
+  if [ -n "$ReturnStatus" ] && [ $ReturnStatus -eq 0 ]; then
           action "$1" /bin/true
   else
           action "$2" /bin/false
